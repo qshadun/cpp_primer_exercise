@@ -27,7 +27,7 @@
  * 	Fax: (201) 236-3290
 */ 
 
-#include "Sales_item.h"
+#include "../1/Sales_item.h"
 #include <iostream>
 #include <string>
 
@@ -35,7 +35,7 @@
 int main() {
 
 	int v1(1024);    // direct-initialization, functional form
-	int v2{1024};    // direct-initialization, list initializer form
+	// int v2{1024};    // direct-initialization, list initializer form
 	int v3 = 1024;   // copy-initialization
 	int v4 = {1024}; // copy-initialization, list initializer form
 
@@ -45,5 +45,12 @@ int main() {
 	std::string titleB("C++ Primer, 5th Ed.");
 	std::string all_nines(10, '9');  // all_nines = "9999999999"
 
+	// int i;
+	// std::cout << i << std::endl;
+
+	int i, &ri = i;
+	i = 5; ri = 10;
+	std::cout << i << " " << ri << std::endl;
 	return 0;
 }
+

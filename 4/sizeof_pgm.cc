@@ -30,7 +30,7 @@
 #include <iostream>
 using std::cout; using std::endl;
 
-#include "Sales_data.h"
+#include "../2/Sales_data.h"
 
 int main() 
 {
@@ -64,7 +64,7 @@ int main()
 	cout << "Sales_data::revenue: " << sizeof Sales_data::revenue << "\n"
 	     << "data.revenue: " << sizeof data.revenue << endl;
 
-	int x[10];   
+	int x[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};   
 	int *ip = x;
 
 	// number of elements in x
@@ -72,6 +72,9 @@ int main()
 
 	// divides sizeof a pointer by sizeof an int
 	cout << sizeof(ip)/sizeof(*ip) << endl;
+	for (int i = 0; i != 10; ++i) {
+		cout << *ip++ << endl;
+	}
 	
 	return 0;
 }

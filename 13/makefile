@@ -4,6 +4,7 @@ OBJECTS = FolderMain.exe HasPtrUseCount.exe \
 		  moveHP.exe serial.exe StrFolderMain.exe \
 		  useStrVec.exe substr.exe 
 
+# OBJECTS = ex13_39.exe
 # tells make to use the file "../GNU_makefile_template", which
 # defines general rules for making .o and .exe files
 include ../GNU_makefile_template

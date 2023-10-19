@@ -30,6 +30,9 @@
 #include <iostream>
 #include <string>
 #include "Sales_data.h"
+using std::cout;
+using std::cin;
+using std::endl;
 
 int main()
 {
@@ -39,12 +42,12 @@ int main()
 	double price = 0;  // price per book, used to calculate total revenue
 
 	// read the first transactions: ISBN, number of books sold, price per book
-	std::cin >> data1.bookNo >> data1.units_sold >> price;
+	cin >> data1.bookNo >> data1.units_sold >> price;
 	// calculate total revenue from price and units_sold
 	data1.revenue = data1.units_sold * price;
 
 	// read the second transaction
-	std::cin >> data2.bookNo >> data2.units_sold >> price;
+	cin >> data2.bookNo >> data2.units_sold >> price;
 	data2.revenue = data2.units_sold * price;
 
 	// code to check whether data1 and data2 have the same ISBN
@@ -54,17 +57,17 @@ int main()
 		double totalRevenue = data1.revenue + data2.revenue;
 
 		// print: ISBN, total sold, total revenue, average price per book
-		std::cout << data1.bookNo << " " << totalCnt 
+		cout << data1.bookNo << " " << totalCnt 
 		          << " " << totalRevenue << " ";
 		if (totalCnt != 0)
-			std::cout << totalRevenue/totalCnt << std::endl;
+			cout << totalRevenue/totalCnt << endl;
 		else
-			std::cout  << "(no sales)" << std::endl;
+			cout  << "(no sales)" << endl;
 
 		return 0;  // indicate success
 	} else {  // transactions weren't for the same ISBN
 		std::cerr << "Data must refer to the same ISBN" 
-		          << std::endl;
+		          << endl;
 		return -1; // indicate failure
 	}
 }

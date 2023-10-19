@@ -47,5 +47,6 @@ int main()
 	string s6 = s4 + ", " + s5 + '\n';
 	cout << s4 << s5 << "\n" << s6 << endl;
 	
+	string s7 = string("hello") + " world!";
 	return 0;
 }
