@@ -56,6 +56,28 @@ using std::accumulate;
 #include <cmath>
 using std::lround;
 
+void normal_dist() {
+	vector<int> vals2(32);     // preallocate so each element 0 value
+	default_random_engine e2;  // restart the sequence
+	normal_distribution<> n(15,5); // mean 15, standard deviation 5
+	for (size_t i = 0; i != 100; ++i) {
+		size_t v = lround(n(e2));
+		if (v < vals2.size())
+			++vals2[v];         // count how often each number appears
+		else
+			cout << "discarding: " << v << " ";
+	}
+	cout << endl;
+
+	cout << std::accumulate(vals2.begin(), vals2.end(), 0) << endl;
+	int m = *max_element(vals2.begin(), vals2.end());
+	for (int i = m; i != 0; --i) {
+		for (size_t j = 0; j != vals2.size(); ++j)
+			if (vals2[j] > i-1) cout << "* ";
+			else               cout << "  ";
+		cout << endl;
+	}
+}
 int main()
 {
 	vector<int> vals(32);     // preallocate so each element is 0 
@@ -71,26 +93,7 @@ int main()
 		cout << endl;
 	}
 
-	vector<int> vals2(32);     // preallocate so each element 0 value
-	default_random_engine e2;  // restart the sequence
-	normal_distribution<> n(15,5); // mean 15, standard deviation 5
-	for (size_t i = 0; i != 100; ++i) {
-		size_t v = lround(n(e));
-		if (v < vals.size())
-			++vals[v];         // count how often each number appears
-		else
-			cout << "discarding: " << v << " ";
-	}
-	cout << endl;
-
-	cout << std::accumulate(vals.begin(), vals.end(), 0) << endl;
-	m = *max_element(vals.begin(), vals.end());
-	for (int i = m; i != 0; --i) {
-		for (size_t j = 0; j != vals.size(); ++j)
-			if (vals[j] > i-1) cout << "* ";
-			else               cout << "  ";
-		cout << endl;
-	}
+	normal_dist();
 
 	return 0;
 }

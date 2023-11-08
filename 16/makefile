@@ -6,7 +6,8 @@ OBJECTS = Array.exe array-parms4.exe \
 		  SP.exe special.exe specialized.exe \
 		  trail-ret.exe typealias.exe \
 		  useBlob.exe useChcking.exe \
-		  variadic.exe variadic3.exe Vecmain.exe
+		  variadic.exe variadic3.exe Vecmain.exe \
+		  ex16_62.exe
 
 # tells make to use the file "../GNU_makefile_template", which
 # defines general rules for making .o and .exe files
@@ -19,6 +20,12 @@ SP.o: DebugDelete.h
 compareDef.o multiset.o variadic.o variadic3.o Sales_data.o: Sales_data.h
 
 Vecmain.o: Vec.h
+
+ex16_62.o: Sales_data.h ex16_62.cpp
+
+ex16_62.exe: ex16_62.o Sales_data.o
+	$(CC) $(CCFLAGS) $(LOCFLAGS) ex16_62.o Sales_data.o \
+			-o ex16_62.exe
 
 compareDef.exe: compareDef.o Sales_data.o
 	$(CC) $(CCFLAGS) $(LOCFLAGS) compareDef.o Sales_data.o \

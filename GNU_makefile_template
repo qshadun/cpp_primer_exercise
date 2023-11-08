@@ -38,7 +38,10 @@ all: $(OBJECTS)
 # $< and $@ are macros defined by make
 #     $< refers to the file being processed (i.e., compiled or linked)
 #     $@ refers to the generated file
-%.o: %.cc 
+%.o: %.cc
+	$(CC) $(CCFLAGS) $(LOCFLAGS) -c $< -o $@
+
+%.o: %.cpp
 	$(CC) $(CCFLAGS) $(LOCFLAGS) -c $< -o $@
 
 # rule that says how to make a .exe executable file from a .o object file
